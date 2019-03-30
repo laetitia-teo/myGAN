@@ -12,7 +12,8 @@ class MnistDataset():
         mnist = tf.keras.datasets.mnist
         (Xtrain, ytrain), (Xtest, ytest) = mnist.load_data()
         X = np.concatenate((Xtrain, Xtest), axis=0)
-        self.X = np.expand_dims(X, axis=-1) # add channel
+        self.X = np.expand_dims(X, axis=-1).astype('float32') # add channel
+        self.X = (self.X - 127.5)/127.5
         self.batch_size = batch_size
         self.size = len(X)
         if n_iter:

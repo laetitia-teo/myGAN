@@ -1,5 +1,5 @@
 from dataset import MnistDataset
-from model import GAN
+from keras_gan import GAN
 
 mnist = MnistDataset(64)
 gan = GAN(mnist)
